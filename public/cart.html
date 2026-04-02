@@ -18,6 +18,7 @@
             padding: 0;
             background-color: #fff9f5;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
@@ -51,12 +52,15 @@
             text-decoration: none;
             font-size: 17px;
             font-weight: 600;
-            transition: color 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
 
         .nav-links li a:hover,
         .nav-links li.active a {
             color: #ff6347;
+            background: rgba(255,255,255,0.2);
         }
 
         .hamburger {
@@ -67,6 +71,13 @@
             font-size: 30px;
             color: white;
             cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hamburger:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         .mobile-menu {
@@ -77,6 +88,7 @@
             width: 100%;
             background-color: rgba(0, 0, 0, 0.95);
             padding: 20px 0;
+            z-index: 1000;
         }
 
         .mobile-menu.show {
@@ -98,6 +110,8 @@
             color: white;
             font-size: 19px;
             text-decoration: none;
+            display: block;
+            padding: 10px;
         }
 
         .container {
@@ -106,100 +120,283 @@
             padding: 20px;
         }
 
-        h1 {
+        .section-title {
             color: #27ae60;
             text-align: center;
             margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .cart-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
         th, td {
-            padding: 15px;
+            padding: 18px 15px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         th {
-            background-color: #ff6347;
+            background: linear-gradient(135deg, #ff6347, #e5533c);
             color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .price {
+            font-weight: 700;
+            color: #27ae60;
+            font-size: 1.1em;
         }
 
         .delete-btn {
-            background-color: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 10px 16px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .delete-btn:hover {
-            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231,76,60,0.4);
         }
 
-        #total {
-            font-size: 28px;
-            font-weight: 700;
-            color: #27ae60;
+        .total-section {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
             text-align: center;
-            margin: 20px 0 40px;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 25px 0;
+            box-shadow: 0 10px 30px rgba(39,174,96,0.3);
         }
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
+        .checkout-section {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
         }
 
         label {
-            font-weight: 600;
+            font-weight: 700;
             display: block;
             margin-bottom: 8px;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+            color: #333;
             font-size: 16px;
         }
 
-        button {
+        input, textarea, select {
             width: 100%;
             padding: 15px;
-            background-color: #ff6347;
-            color: white;
-            border: none;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
+            margin-bottom: 5px;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: inherit;
             transition: all 0.3s ease;
         }
 
-        button:hover {
-            background-color: #e5533c;
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff6347;
+            box-shadow: 0 0 0 3px rgba(255,99,71,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .payment-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .payment-tab {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            background: #ddd;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .payment-tab.active {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39,174,96,0.4);
+        }
+
+        .payment-content.hidden {
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #ff6347, #e5533c);
+            color: white;
+            border: none;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,99,71,0.4);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-cart i {
+            font-size: 80px;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .popup-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transform: scale(0.8);
+            animation: popupSlideIn 0.3s ease forwards;
+        }
+
+        @keyframes popupSlideIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .popup-box h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .popup-box p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .popup-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .confirm-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39,174,96,0.4);
+        }
+
+        .cancel-btn {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        .cancel-btn:hover {
+            background: #e9ecef;
         }
 
         footer {
-            background-color: #333;
+            background: linear-gradient(135deg, #333, #555);
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 40px 20px;
             margin-top: 60px;
         }
 
@@ -207,13 +404,17 @@
             .nav-links { display: none; }
             .hamburger { display: block; }
             .container { padding: 15px; }
+            .cart-section, .checkout-section { padding: 20px; }
+            .section-title { font-size: 2em; }
+            .payment-tabs { flex-direction: column; }
+            table { font-size: 14px; }
+            th, td { padding: 12px 8px; }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Your Cart</h1>
+        <h1><i class="fas fa-shopping-cart"></i> Your Cart</h1>
         
         <ul class="nav-links">
             <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
@@ -245,133 +446,401 @@
     </header>
 
     <div class="container">
-        <h1>Your Cart</h1>
+        <!-- Cart Items Section -->
+        <div class="cart-section">
+            <h1 class="section-title">Your Shopping Cart</h1>
+            
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
 
-        <table id="cartTable">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+            <div id="totalSection" class="total-section" style="display: none;">
+                <div>Total: <span id="totalAmount">0</span> UGX</div>
+            </div>
 
-        <h2 id="total"></h2>
+            <div id="emptyCart" class="empty-cart" style="display: none;">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Your cart is empty</h2>
+                <p>Add some delicious items to get started!</p>
+                <a href="index.html" class="submit-btn" style="max-width: 300px; display: inline-block; text-decoration: none;">
+                    <i class="fas fa-home"></i> Continue Shopping
+                </a>
+            </div>
+        </div>
 
-        <form id="orderForm" onsubmit="submitOrder(event)">
-            <h2>Customer Information</h2>
+        <!-- Checkout Section -->
+        <div id="checkoutSection" class="checkout-section" style="display: none;">
+            <h2 style="color: #27ae60; text-align: center; margin-bottom: 30px;">Complete Your Order</h2>
+            
+            <!-- Customer Info Form -->
+            <form id="customerForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" required>
+                </div>
 
-            <label for="customerName">Full Name</label>
-            <input type="text" id="customerName" required>
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number *</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
 
-            <label for="customerEmail">Email Address</label>
-            <input type="email" id="customerEmail" required>
+                <div class="form-group">
+                    <label for="customerEmail">Email Address *</label>
+                    <input type="email" id="customerEmail" required>
+                </div>
 
-            <label for="orderDetails">Your Order Details</label>
-            <textarea id="orderDetails" rows="10" readonly></textarea>
+                <div class="form-group">
+                    <label>Order Summary</label>
+                    <textarea id="orderDetails" rows="6" readonly></textarea>
+                </div>
+            </form>
 
-            <button type="submit">📤 Submit Order via Email</button>
-        </form>
+            <!-- Payment Section -->
+            <div class="payment-tabs">
+                <button class="payment-tab active" data-method="momo">
+                    <i class="fas fa-mobile-alt"></i> Mobile Money
+                </button>
+                <button class="payment-tab" data-method="card">
+                    <i class="fas fa-credit-card"></i> Credit Card
+                </button>
+            </div>
+
+            <form id="paymentForm">
+                <!-- Mobile Money -->
+                <div id="momoSection" class="payment-content">
+                    <div class="form-group">
+                        <label for="mobileMoney">Mobile Money Number *</label>
+                        <input type="tel" id="mobileMoney" placeholder="07X XXX XXXX">
+                    </div>
+                </div>
+
+                <!-- Credit Card -->
+                <div id="cardSection" class="payment-content hidden">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-lock"></i> Pay Securely Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Payment Confirmation Popup -->
+    <div id="paymentPopup" class="popup-overlay">
+        <div class="popup-box">
+            <h3 id="popupTitle">Processing Payment...</h3>
+            <p id="popupMessage"></p>
+            <div class="popup-buttons">
+                <button id="confirmBtn" class="popup-btn confirm-btn" style="display: none;">Confirm Payment</button>
+                <button id="cancelBtn" class="popup-btn cancel-btn">Cancel</button>
+            </div>
+                        <input type="password" id="momoPin" placeholder="Enter PIN" style="display: none; width: 100%; padding: 15px; margin: 15px 0; border: 2px solid #e1e8ed; border-radius: 10px;">
+        </div>
     </div>
 
     <footer>
-        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+        <p>&copy; 2024 CLASSIC CONFECTIONARIES. All rights reserved. | Secure Payments Guaranteed</p>
     </footer>
 
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const tbody = document.querySelector("#cartTable tbody");
-        const orderDetails = document.getElementById("orderDetails");
-        let total = 0;
-        let orderText = "";
-
-        function renderCart() {
-            tbody.innerHTML = "";
-            total = 0;
-            orderText = "";
-
-            if (cart.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:40px; color:#666;">Your cart is empty</td></tr>`;
-                document.getElementById("total").textContent = "Total: 0 UGX";
-                orderDetails.value = "";
-                return;
+        class CartManager {
+            constructor() {
+                this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+                this.total = 0;
+                this.init();
             }
 
-            cart.forEach((item, index) => {
-                const row = `
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>${item.price.toLocaleString()} UGX</td>
+            init() {
+                this.renderCart();
+                this.setupEventListeners();
+            }
+
+            renderCart() {
+                const tbody = document.querySelector("#cartTable tbody");
+                const totalSection = document.getElementById("totalSection");
+                const checkoutSection = document.getElementById("checkoutSection");
+                const emptyCart = document.getElementById("emptyCart");
+                const orderDetails = document.getElementById("orderDetails");
+
+                tbody.innerHTML = "";
+                
+                if (this.cart.length === 0) {
+                    totalSection.style.display = "none";
+                    checkoutSection.style.display = "none";
+                    emptyCart.style.display = "block";
+                    return;
+                }
+
+                emptyCart.style.display = "none";
+                this.calculateTotal();
+                
+                let orderText = "Order Summary:\n\n";
+                this.cart.forEach((item, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="item-name">${item.name}</td>
+                        <td class="price">${item.price.toLocaleString()} UGX</td>
                         <td>
-                            <button class="delete-btn" onclick="removeItem(${index})">Remove</button>
+                            <button class="delete-btn" onclick="cartManager.removeItem(${index})">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
                         </td>
-                    </tr>`;
-                tbody.innerHTML += row;
-                total += item.price;
-                orderText += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} UGX\n`;
-            });
+                    `;
+                    tbody.appendChild(row);
+                    
+                    orderText += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} UGX\n`;
+                });
 
-            document.getElementById("total").textContent = `Total: ${total.toLocaleString()} UGX`;
-            orderText += `\nTotal: ${total.toLocaleString()} UGX`;
-            orderDetails.value = orderText;
-        }
+                orderText += `\n💰 TOTAL: ${this.total.toLocaleString()} UGX`;
+                orderDetails.value = orderText;
+                
+                document.getElementById("totalAmount").textContent = this.total.toLocaleString();
+                totalSection.style.display = "block";
+                checkoutSection.style.display = "block";
+            }
 
-        // Function to remove item
-        function removeItem(index) {
-            if (confirm("Are you sure you want to remove this item?")) {
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart();
+            calculateTotal() {
+                this.total = this.cart.reduce((sum, item) => sum + item.price, 0);
+            }
+
+            removeItem(index) {
+                if (confirm("Are you sure you want to remove this item from your cart?")) {
+                    this.cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(this.cart));
+                    this.renderCart();
+                }
+            }
+
+            clearCart() {
+                this.cart = [];
+                localStorage.removeItem('cart');
+                this.renderCart();
+            }
+
+            setupEventListeners() {
+                // Hamburger menu
+                const hamburger = document.getElementById('hamburger');
+                const mobileMenu = document.getElementById('mobileMenu');
+                
+                hamburger.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('show');
+                    const icon = hamburger.querySelector('i');
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
+                });
+
+                // Payment tabs
+                document.querySelectorAll('.payment-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => {
+                        const method = e.currentTarget.dataset.method;
+                        this.switchPaymentMethod(method);
+                    });
+                });
+
+                // Customer form validation
+                document.getElementById('customerForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.validateCustomerInfo();
+                });
+
+                // Payment form
+                document.getElementById('paymentForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.processPayment();
+                });
+
+                // Popup handlers
+                document.getElementById('cancelBtn').addEventListener('click', this.closePopup);
+                document.getElementById('confirmBtn').addEventListener('click', () => this.confirmPayment());
+            }
+
+            switchPaymentMethod(method) {
+                document.querySelectorAll('.payment-tab').forEach(tab => tab.classList.remove('active'));
+                event.currentTarget.classList.add('active');
+
+                document.getElementById('momoSection').classList.toggle('hidden', method !== 'momo');
+                document.getElementById('cardSection').classList.toggle('hidden', method !== 'card');
+            }
+
+            validateCustomerInfo() {
+                const name = document.getElementById('customerName').value.trim();
+                const phone = document.getElementById('customerPhone').value.trim();
+                const email = document.getElementById('customerEmail').value.trim();
+
+                if (!name || !phone || !email) {
+                    this.showAlert('Please fill in all customer information fields.', 'error');
+                    return false;
+                }
+
+                if (!/^\+?[\d\s-()]{10,}$/.test(phone.replace(/\s/g, ''))) {
+                    this.showAlert('Please enter a valid phone number.', 'error');
+                    return false;
+                }
+
+                return true;
+            }
+
+            processPayment() {
+                if (this.cart.length === 0) {
+                    this.showAlert('Your cart is empty!', 'error');
+                    return;
+                }
+
+                if (!this.validateCustomerInfo()) return;
+
+                const activeTab = document.querySelector('.payment-tab.active');
+                const method = activeTab.dataset.method;
+
+                if (method === 'momo') {
+                    const phone = document.getElementById('mobileMoney').value.trim();
+                    if (!phone || !/^\+?[\d\s-()]{10,}$/.test(phone.replace(/\s/g, ''))) {
+                        this.showAlert('Please enter a valid mobile money number.', 'error');
+                        return;
+                    }
+                    this.showMomoPopup(phone);
+                } else {
+                    const card = document.getElementById('cardNumber').value.trim();
+                    const expiry = document.getElementById('expiry').value.trim();
+                    const cvv = document.getElementById('cvv').value.trim();
+
+                    if (!card || !expiry || !cvv) {
+                        this.showAlert('Please fill in all card details.', 'error');
+                        return;
+                    }
+
+                    this.processCardPayment();
+                }
+            }
+
+            showMomoPopup(phone) {
+                document.getElementById('popupTitle').textContent = 'Mobile Money Payment';
+                document.getElementById('popupMessage').textContent = 
+                    `Approve payment of ${this.total.toLocaleString()} UGX to Classic Confectionaries from ${phone}`;
+                document.getElementById('momoPin').style.display = 'block';
+                document.getElementById('confirmBtn').style.display = 'inline-flex';
+                document.getElementById('paymentPopup').style.display = 'flex';
+            }
+
+            processCardPayment() {
+                this.showPopup('Processing Card Payment...', 'Please wait while we process your payment...', false);
+                
+                setTimeout(() => {
+                    this.showSuccess('Payment Successful!', 'Your card payment has been processed successfully!');
+                }, 2000);
+            }
+
+            confirmPayment() {
+                const pin = document.getElementById('momoPin').value;
+                if (pin.length < 4) {
+                    this.showAlert('Please enter a valid 4-digit PIN.', 'error');
+                    return;
+                }
+
+                this.showPopup('Processing Payment...', 'Please wait...', false);
+                
+                setTimeout(() => {
+                    this.showSuccess('Payment Successful!', 'Thank you for your purchase!');
+                }, 2000);
+            }
+
+            showSuccess(title, message) {
+                this.showPopup(title, message, true);
+            }
+
+            showPopup(title, message, isSuccess = false) {
+                document.getElementById('popupTitle').textContent = title;
+                document.getElementById('popupMessage').textContent = message;
+                document.getElementById('paymentPopup').style.display = 'flex';
+                
+                if (isSuccess) {
+                    setTimeout(() => {
+                        this.completeOrder();
+                    }, 2000);
+                }
+            }
+
+            showAlert(message, type = 'info') {
+                const alertClass = type === 'error' ? 'error' : 'info';
+                // Simple alert for now, could be enhanced with toast notifications
+                alert(message);
+            }
+
+            completeOrder() {
+                // Send order email
+                this.sendOrderEmail();
+                
+                // Clear cart
+                this.clearCart();
+                
+                // Redirect to success page
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }
+
+            sendOrderEmail() {
+                const customerName = document.getElementById('customerName').value.trim();
+                const customerEmail = document.getElementById('customerEmail').value.trim();
+                const orderDetails = document.getElementById('orderDetails').value;
+
+                const email = "mikendizihiwe@gmail.com";
+                const subject = `New Order from ${customerName} - ${this.total.toLocaleString()} UGX`;
+                const body = `New Order Details:\n\nCustomer: ${customerName}\nEmail: ${customerEmail}\nPhone: ${document.getElementById('customerPhone').value}\n\n${orderDetails}\n\n---\nTotal Amount: ${this.total.toLocaleString()} UGX`;
+
+                const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.location.href = mailtoLink;
+            }
+
+            closePopup() {
+                document.getElementById('paymentPopup').style.display = 'none';
+                document.getElementById('momoPin').style.display = 'none';
+                document.getElementById('confirmBtn').style.display = 'none';
+                document.getElementById('momoPin').value = '';
             }
         }
 
-        function submitOrder(event) {
-            event.preventDefault();
+        // Initialize cart manager
+        const cartManager = new CartManager();
 
-            if (cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
+        // Add input formatting
+        document.getElementById('cardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) formatted += ' ';
+                formatted += value[i];
             }
-
-            const customerName = document.getElementById("customerName").value.trim();
-            const customerEmail = document.getElementById("customerEmail").value.trim();
-
-            if (!customerName || !customerEmail) {
-                alert("Please fill in your name and email.");
-                return;
-            }
-
-            const email = "mikendizihiwe@gmail.com";
-            const subject = `New Order from ${customerName}`;
-            const body = `Customer Name: ${customerName}\nCustomer Email: ${customerEmail}\n\nOrder Details:\n${orderText}`;
-
-            const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-
-            // Clear cart after successful submission
-            localStorage.removeItem('cart');
-
-            setTimeout(() => {
-                alert("Thank you! Your order has been submitted.");
-                window.location.href = "index.html";
-            }, 1000);
-        }
-
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('show');
-            const icon = hamburger.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            e.target.value = formatted;
         });
 
-        // Initial render
-        renderCart();
+        document.getElementById('expiry').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
     </script>
 </body>
 </html>
