@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="./Classic Confectionaries.jpg">
+    <link rel="icon" type="image/x-icon" href="./CLASSIC CONFECTIONARIES.jpg">
 
     
     <title>Contact Us | Delicious Eats</title>
@@ -123,6 +123,11 @@
             font-size: 18px;
             line-height: 1.7;
         }
+        .feedback {
+            margin-top: 30px;
+            text-align: center;
+
+        }
 
         form {
             max-width: 600px;
@@ -137,6 +142,15 @@
 
         input[type="text"],
         input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
         textarea {
             width: 100%;
             padding: 12px;
@@ -164,6 +178,21 @@
 
         button:hover {
             background-color: #c2d506;
+        }
+        .rating {
+            text-align: center;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        .star {
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ff6347;
         }
 
         .social-icons {
@@ -262,6 +291,18 @@
             <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
     </section>
+    <!-- add rating section -->
+    <section>
+        <h2>Rate Our Service</h2>
+        <p>Please take a moment to rate your experience with us:</p>
+        <div class="rating">
+            <span class="star" data-value="1">&#9733;</span>
+            <span class="star" data-value="2">&#9733;</span>
+            <span class="star" data-value="3">&#9733;</span>
+            <span class="star" data-value="4">&#9733;</span>
+            <span class="star" data-value="5">&#9733;</span>
+        </div>
+    </section>
 
     <section>
         <h2>Feedback Form</h2>
@@ -270,12 +311,13 @@
         <form id="feedbackForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
-            
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
 
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
@@ -313,14 +355,15 @@
 
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
             const message = document.getElementById('message').value.trim();
 
-            if (!name || !email || !message) {
+            if (!name || !email || !phone || !message) {
                 alert("Please fill all fields before submitting.");
                 return;
             }
 
-            const whatsappMessage = `Feedback from ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const whatsappMessage = `Feedback from ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`;
 
             const encodedMessage = encodeURIComponent(whatsappMessage);
             window.open(`https://wa.me/256742056209?text=${encodedMessage}`, '_blank');
@@ -328,6 +371,23 @@
             // Optional: Clear form after submission
             this.reset();
         });
+        // Handle Star Rating
+        const stars = document.querySelectorAll('.star');
+        let currentRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                currentRating = parseInt(star.getAttribute('data-value'));
+                stars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-value')) <= currentRating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+
     </script>
 </body>
 </html>
