@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Classic Confectionaries.jpg">
+    <title>OUR SALAD | Classic Confectionaries</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fff8;
+        }
+
+        /* Header */
+        header {
+            background-image: url(./Cafe-G-S_200beb5db1bbd7ae33bff5981368c6f7.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0 0 20px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        /* Desktop Menu - Matches Mobile Menu Exactly */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li.active a {
+            color: #ff6347;
+        }
+
+        /* Hamburger for Mobile */
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            font-size: 19px;
+            text-decoration: none;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #27ae60;
+            margin: 30px 0 10px;
+        }
+
+        p.intro {
+            text-align: center;
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        #root {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .salad-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 20px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .salad-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .salad-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .salad-card h3 {
+            font-size: 22px;
+            margin: 10px 0 8px;
+            color: #333;
+        }
+
+        .salad-card .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .salad-card button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .salad-card button:hover {
+            background-color: #27ae60;
+        }
+
+        #cart-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        #cart-button button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            cursor: pointer;
+        }
+
+        #cart-button button:hover {
+            background-color: #219150;
+        }
+
+        footer {
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 38px;
+            }
+            
+            .nav-links {
+                display: none;   /* Hide desktop on mobile */
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WELCOME TO OUR DELICIOUS SALAD</h1>
+        
+        <!-- Desktop Menu - Now matches mobile menu exactly -->
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+            <li><a href="./dessert.html">DESSERT</a></li>
+            <li><a href="./Appetizers.html">APPETIZER</a></li>
+            <li><a href="./pasta.html">PASTA</a></li>
+            <li class="active"><a href="SALAD.HTML">SALAD</a></li>
+            <li><a href="./burger.html">BURGER</a></li>
+            <li><a href="./piza.html">PIZZA</a></li>
+            <li><a href="cart.html">🛒 CART</a></li>
+        </ul>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+                <li><a href="./dessert.html">DESSERT</a></li>
+                <li><a href="./Appetizers.html">APPETIZER</a></li>
+                <li><a href="./pasta.html">PASTA</a></li>
+                <li><a href="SALAD.HTML">SALAD</a></li>
+                <li><a href="./burger.html">BURGER</a></li>
+                <li><a href="./piza.html">PIZZA</a></li>
+                <li><a href="cart.html">🛒 CART</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <p class="intro">We have many salads that fit your meals, starting from the meat pies to very many western salads</p>
+
+    <div id="root">
+        <div class="salad-card">
+            <img src="./salad/download (1).jpg" alt="Raw Salad">
+            <h3>RAW SALAD</h3>
+            <p class="price">UGX 35,000</p>
+            <button onclick="addToCart('Raw Salad', 35000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (11).jpg" alt="Chilli Spice Salad">
+            <h3>CHILLI SPICE SALAD</h3>
+            <p class="price">UGX 25,000</p>
+            <button onclick="addToCart('Chilli Spice Salad', 25000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (15).jpg" alt="Omelette Salad">
+            <h3>OMELETTE SALAD</h3>
+            <p class="price">UGX 50,000</p>
+            <button onclick="addToCart('Omelette Salad', 50000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (2).jpg" alt="French Salad">
+            <h3>FRENCH SALAD</h3>
+            <p class="price">UGX 20,000</p>
+            <button onclick="addToCart('French Salad', 20000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (13).jpg" alt="Devine Salad">
+            <h3>DEVINE SALAD</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('Devine Salad', 15000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (14).jpg" alt="Mexican Salad">
+            <h3>MEXICAN SALAD</h3>
+            <p class="price">UGX 35,000</p>
+            <button onclick="addToCart('Mexican Salad', 35000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (16).jpg" alt="Stir Salad">
+            <h3>STIR SALAD</h3>
+            <p class="price">UGX 40,000</p>
+            <button onclick="addToCart('Stir Salad', 40000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (19).jpg" alt="Swiss Salad">
+            <h3>SWISS SALAD</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('Swiss Salad', 15000)">Order</button>
+        </div>
+        <div class="salad-card">
+            <img src="./salad/download (18).jpg" alt="Salad Le Bon">
+            <h3>SALAD LE BON</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('Salad Le Bon', 15000)">Order</button>
+        </div>
+    </div>
+
+    <div id="cart-button">
+        <button onclick="viewCart()">🛒 View Cart</button>
+    </div>
+
+    <footer>
+        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} added to cart!`);
+        }
+
+        function viewCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let message = "Your Cart:\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - UGX ${item.price.toLocaleString()}\n`;
+                total += item.price;
+            });
+
+            message += `\nTotal: UGX ${total.toLocaleString()}`;
+            alert(message);
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Classic Confectionaries.jpg">
+    <title>Your Cart | Classic Confectionaries</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f5;
+            color: #333;
+        }
+
+        header {
+            background-image: url(./Cafe-G-S_200beb5db1bbd7ae33bff5981368c6f7.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0 0 20px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li.active a {
+            color: #ff6347;
+        }
+
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            font-size: 19px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #ff6347;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
+        #total {
+            font-size: 28px;
+            font-weight: 700;
+            color: #27ae60;
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e5533c;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .container { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Cart</h1>
+        
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+            <li><a href="./dessert.html">DESSERT</a></li>
+            <li><a href="./Appetizers.html">APPETIZER</a></li>
+            <li><a href="./pasta.html">PASTA</a></li>
+            <li><a href="./SALAD.HTML">SALAD</a></li>
+            <li><a href="./burger.html">BURGER</a></li>
+            <li><a href="./piza.html">PIZZA</a></li>
+            <li class="active"><a href="cart.html">🛒 CART</a></li>
+        </ul>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+                <li><a href="./dessert.html">DESSERT</a></li>
+                <li><a href="./Appetizers.html">APPETIZER</a></li>
+                <li><a href="./pasta.html">PASTA</a></li>
+                <li><a href="./SALAD.HTML">SALAD</a></li>
+                <li><a href="./burger.html">BURGER</a></li>
+                <li><a href="./piza.html">PIZZA</a></li>
+                <li><a href="cart.html">🛒 CART</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Your Cart</h1>
+
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2 id="total"></h2>
+
+        <form id="orderForm" onsubmit="submitOrder(event)">
+            <h2>Customer Information</h2>
+
+            <label for="customerName">Full Name</label>
+            <input type="text" id="customerName" required>
+
+            <label for="customerEmail">Email Address</label>
+            <input type="email" id="customerEmail" required>
+
+            <label for="orderDetails">Your Order Details</label>
+            <textarea id="orderDetails" rows="10" readonly></textarea>
+
+            <button type="submit">📤 Submit Order via Email</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const tbody = document.querySelector("#cartTable tbody");
+        const orderDetails = document.getElementById("orderDetails");
+        let total = 0;
+        let orderText = "";
+
+        function renderCart() {
+            tbody.innerHTML = "";
+            total = 0;
+            orderText = "";
+
+            if (cart.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:40px; color:#666;">Your cart is empty</td></tr>`;
+                document.getElementById("total").textContent = "Total: 0 UGX";
+                orderDetails.value = "";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const row = `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.price.toLocaleString()} UGX</td>
+                        <td>
+                            <button class="delete-btn" onclick="removeItem(${index})">Remove</button>
+                        </td>
+                    </tr>`;
+                tbody.innerHTML += row;
+                total += item.price;
+                orderText += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} UGX\n`;
+            });
+
+            document.getElementById("total").textContent = `Total: ${total.toLocaleString()} UGX`;
+            orderText += `\nTotal: ${total.toLocaleString()} UGX`;
+            orderDetails.value = orderText;
+        }
+
+        // Function to remove item
+        function removeItem(index) {
+            if (confirm("Are you sure you want to remove this item?")) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            }
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            const customerName = document.getElementById("customerName").value.trim();
+            const customerEmail = document.getElementById("customerEmail").value.trim();
+
+            if (!customerName || !customerEmail) {
+                alert("Please fill in your name and email.");
+                return;
+            }
+
+            const email = "mikendizihiwe@gmail.com";
+            const subject = `New Order from ${customerName}`;
+            const body = `Customer Name: ${customerName}\nCustomer Email: ${customerEmail}\n\nOrder Details:\n${orderText}`;
+
+            const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+
+            // Clear cart after successful submission
+            localStorage.removeItem('cart');
+
+            setTimeout(() => {
+                alert("Thank you! Your order has been submitted.");
+                window.location.href = "index.html";
+            }, 1000);
+        }
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Initial render
+        renderCart();
+    </script>
+</body>
+</html>

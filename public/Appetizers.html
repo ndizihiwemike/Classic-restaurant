@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Classic Confectionaries.jpg">
+    <title>OUR APPETIZERS | Classic Confectionaries</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #fff9f2;
+        }
+
+        /* Header */
+        header {
+            background-image: url(./Cafe-G-S_200beb5db1bbd7ae33bff5981368c6f7.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin: 0 0 20px 0;
+            color: #ff6f61;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+
+        /* Desktop Menu - Matches Mobile Menu Exactly */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover,
+        .nav-links li.active a {
+            color: #ff6347;
+        }
+
+        /* Hamburger for Mobile */
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            font-size: 19px;
+            text-decoration: none;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #ff6f61;
+            margin: 30px 0 10px;
+        }
+
+        p.intro {
+            text-align: center;
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+
+        .search {
+            text-align: center;
+            margin: 25px 20px;
+        }
+
+        .search input {
+            font-size: 18px;
+            padding: 12px 20px;
+            width: 320px;
+            max-width: 100%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+
+        .search input:focus {
+            border-color: #ff6f61;
+        }
+
+        #root {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .appetizer-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 20px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .appetizer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .appetizer-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .appetizer-card h3 {
+            font-size: 22px;
+            margin: 10px 0 8px;
+            color: #333;
+        }
+
+        .appetizer-card .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6f61;
+            margin-bottom: 15px;
+        }
+
+        .appetizer-card button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .appetizer-card button:hover {
+            background-color: #e25346;
+            transform: scale(1.05);
+        }
+
+        /* Floating Cart Button */
+        #cart-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        #cart-button button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            cursor: pointer;
+        }
+
+        #cart-button button:hover {
+            background-color: #219150;
+        }
+
+        footer {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 38px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>WELCOME TO OUR DELICIOUS APPETIZERS</h1>
+        
+        <!-- Desktop Menu - Matches mobile menu exactly -->
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+            <li><a href="./dessert.html">DESSERT</a></li>
+            <li><a href="./pasta.html">PASTA</a></li>
+            <li><a href="./SALAD.HTML">SALAD</a></li>
+            <li><a href="./burger.html">BURGER</a></li>
+            <li><a href="./piza.html">PIZZA</a></li>
+            <li class="active"><a href="Appetizers.html">APPETIZER</a></li>
+            <li><a href="cart.html">🛒 CART</a></li>
+        </ul>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+                <li><a href="./dessert.html">DESSERT</a></li>
+                <li><a href="./pasta.html">PASTA</a></li>
+                <li><a href="./SALAD.HTML">SALAD</a></li>
+                <li><a href="./burger.html">BURGER</a></li>
+                <li><a href="./piza.html">PIZZA</a></li>
+                <li><a href="Appetizers.html">APPETIZER</a></li>
+                <li><a href="cart.html">🛒 CART</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <p class="intro">We have appetizers that complement every dish, from light bites to rich savory starters.</p>
+
+    <div class="search">
+        <input type="text" placeholder="Search appetizers..." id="searchBar">
+    </div>
+
+    <div id="root">
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0014.jpg" alt="Spring Rolls">
+            <h3>SPRING ROLLS</h3>
+            <p class="price">UGX 35,000</p>
+            <button onclick="addToCart('SPRING ROLLS', 35000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0015.jpg" alt="Stuffed Mushrooms">
+            <h3>STUFFED MUSHROOMS</h3>
+            <p class="price">UGX 25,000</p>
+            <button onclick="addToCart('STUFFED MUSHROOMS', 25000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0022.jpg" alt="Cheesy Bites">
+            <h3>CHEESY BITES</h3>
+            <p class="price">UGX 50,000</p>
+            <button onclick="addToCart('CHEESY BITES', 50000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0017.jpg" alt="Garlic Bread">
+            <h3>GARLIC BREAD</h3>
+            <p class="price">UGX 20,000</p>
+            <button onclick="addToCart('GARLIC BREAD', 20000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./Apettizer/download (5).jpg" alt="Onion Rings">
+            <h3>ONION RINGS</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('ONION RINGS', 15000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0019.jpg" alt="Chicken Skewers">
+            <h3>CHICKEN SKEWERS</h3>
+            <p class="price">UGX 35,000</p>
+            <button onclick="addToCart('CHICKEN SKEWERS', 35000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0020.jpg" alt="Mozzarella Sticks">
+            <h3>MOZZARELLA STICKS</h3>
+            <p class="price">UGX 40,000</p>
+            <button onclick="addToCart('MOZZARELLA STICKS', 40000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./IMG-20241022-WA0021.jpg" alt="Mini Sausages">
+            <h3>MINI SAUSAGES</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('MINI SAUSAGES', 15000)">Order</button>
+        </div>
+        <div class="appetizer-card">
+            <img src="./Apettizer/download (3).jpg" alt="Avocado Toast">
+            <h3>AVOCADO TOAST</h3>
+            <p class="price">UGX 15,000</p>
+            <button onclick="addToCart('AVOCADO TOAST', 15000)">Order</button>
+        </div>
+    </div>
+
+    <div id="cart-button">
+        <button onclick="viewCart()">🛒 View Cart</button>
+    </div>
+
+    <footer>
+        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} added to cart!`);
+        }
+
+        function viewCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let message = "Your Cart:\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                message += `${index + 1}. ${item.name} - UGX ${item.price.toLocaleString()}\n`;
+                total += item.price;
+            });
+
+            message += `\nTotal: UGX ${total.toLocaleString()}`;
+            alert(message);
+        }
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>

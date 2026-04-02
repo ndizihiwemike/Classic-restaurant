@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASSIC CONFECTIONARIES</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="Classic Confectionaries.jpg">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0de9e9;
+            --accent-color: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f5;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-image: url(./gs-cafe-n-restaurant-jodhpur-jodhpur-w5aeoh91ku.avif);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-links li.active a {
+            color: var(--accent-color);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            font-size: 1.3em;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url(./Cafe-G-S_200beb5db1bbd7ae33bff5981368c6f7.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px 100px;
+        }
+
+        .hero h1 {
+            font-size: 3.8em;
+            margin: 0 0 15px 0;
+            color: var(--accent-color);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.6em;
+            margin: 0;
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card i {
+            font-size: 3em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .feature-card h3 {
+            color: #0de9e9;
+            margin: 15px 0 10px;
+            font-size: 1.5em;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 15px;
+            }
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero {
+                padding: 90px 20px 70px;
+            }
+
+            .hero h1 {
+                font-size: 2.6em;
+            }
+
+            .hero p {
+                font-size: 1.3em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="Classic Confectionaries.jpg" alt="Classic Confectionaries Logo">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav>
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> ABOUT</a></li>
+                    <li><a href="service.html"><i class="fas fa-utensils"></i> SERVICE</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+                <li><a href="about.html"><i class="fas fa-info-circle"></i> ABOUT</a></li>
+                <li><a href="service.html"><i class="fas fa-utensils"></i> SERVICE</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>CLASSIC CONFECTIONARIES</h1>
+        <p>Taste the Freshness, Feel the Flavor</p>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-ice-cream"></i>
+            <img src="desse.jpg" alt="Delicious Desserts">
+            <h3>Delicious Desserts</h3>
+            <p>Indulge in our wide variety of mouth-watering desserts made with the finest ingredients.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-pizza-slice"></i>
+            <img src="./Apettizer/download (2).jpg" alt="Savory Appetizers">
+            <h3>Savory Appetizers</h3>
+            <p>Start your meal with our delectable appetizers that perfectly complement our main courses.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-hamburger"></i>
+            <img src="./Chilli spicy burger.jpg" alt="Hearty Burgers">
+            <h3>Hearty Burgers</h3>
+            <p>Experience the perfect blend of juicy beef, fresh vegetables, and our signature sauces.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-leaf"></i>
+            <img src="./Salad/download (1).jpg" alt="Fresh Salads">
+            <h3>Fresh Salads</h3>
+            <p>Enjoy our selection of fresh, healthy salads made with the finest ingredients.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="./Pizza/download (1).jpg" alt="Classic Pizzas">
+            <h3>Classic Pizzas</h3>
+            <p>Savor our delicious pizzas with a variety of toppings and a perfectly crispy crust.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }               
+        });
+    </script>
+</body>
+</html>

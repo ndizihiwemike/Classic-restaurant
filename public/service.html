@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Classic Confectionaries.jpg">
+    <title>Our Services | Classic Confectionaries</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff9f5;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        header {
+            background-image: url(./Cafe-G-S_200beb5db1bbd7ae33bff5981368c6f7.jpg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 20px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 55px;
+            margin: 0 0 20px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ff6347;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            position: absolute;
+            top: 25px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 20px 0;
+        }
+
+        .mobile-menu.show {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* Main Content */
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #dee907;
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            background: #fff9f5;
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            color: #ff6347;
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-item i {
+            font-size: 28px;
+        }
+
+        .service-item p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 42px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            section {
+                margin: 20px 12px;
+                padding: 30px 20px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Services</h1>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+                <li><a href="pasta.html">PASTA</a></li>
+                 <li><a href="salad.html">SALADS</a></li>
+                 <li><a href="dessert.html">DESSERTS</a></li>
+                 <li><a href="pizza.html">PIZZA</a></li>
+                 <li><a href="Appetizers.html">APPETIZERS</a></li>
+                 <li><a href="burger.html">BURGERS</a></li>
+                
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html"><i class="fa fa-home"></i> HOME</a></li>
+                <!-- link pasta.html, salad.html, dessert.html, pizza.html, appetizer.html, burger.html -->
+                 <li><a href="pasta.html">PASTA</a></li>
+                 <li><a href="salad.html">SALADS</a></li>
+                 <li><a href="dessert.html">DESSERTS</a></li>
+                 <li><a href="pizza.html">PIZZA</a></li>
+                 <li><a href="Appetizers.html">APPETIZERS</a></li>
+                 <li><a href="burger.html">BURGERS</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section>
+        <h2>What We Offer</h2>
+
+        <div class="service-grid">
+            <div class="service-item">
+                <h3><i class="fas fa-utensils"></i> Dine-In Experience</h3>
+                <p>Enjoy a cozy and welcoming atmosphere in our restaurant with top-notch service and ambiance.</p>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-shopping-bag"></i> Takeaway Orders</h3>
+                <p>Order your favorite meals on-the-go and pick them up fresh and hot from our kitchen.</p>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-motorcycle"></i> Fast Delivery</h3>
+                <p>Get delicious food delivered right to your doorstep, hot and fresh, wherever you are in Mityana.</p>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-concierge-bell"></i> Event Catering</h3>
+                <p>Make your events memorable with our customized catering — perfect for birthdays, graduations, weddings, and parties. Call 0775144976 for outside catering.</p>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-leaf"></i> Healthy Options</h3>
+                <p>Choose from our variety of healthy and vegetarian dishes made with the freshest ingredients.</p>
+            </div>
+
+            <div class="service-item">
+                <h3><i class="fas fa-star"></i> Custom Orders</h3>
+                <p>Want something special? Let us know and we’ll prepare it just the way you like it.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; CLASSIC CONFECTIONARIES. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            
+            const icon = hamburger.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    </script>
+</body>
+</html>
